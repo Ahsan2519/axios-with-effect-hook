@@ -15,21 +15,16 @@ const PostList = () => {
   };
 
   const getData = async () => {
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/posts/${postId}`
-    );
+    
     try {
-      response.status === 200
-        ? (() => {
-            setPost(response.data);
-            setError("");
-          })()
-        : (() => {
-            throw Error(`Sorry, ${response.status} bad request`);
-          })();
+      setError('')
+      const response = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts/${postId}`
+      );
+      setPost(response.data)
     } catch (error) {
-      console.log(error);
-      setError(error);
+      console.log(error.message);
+      setError(error.message);
     }
   };
 
@@ -40,8 +35,8 @@ const PostList = () => {
   return (
     <>
       <form onSubmit={submitHandler}>
-        <div className="parent">
           <label htmlFor="id">please enter post number:</label>
+        <div className="parent">
           <input
             type="number"
             id="id"
@@ -50,7 +45,7 @@ const PostList = () => {
               setPostID(parseInt(e.target.value));
             }}
           />
-          <span>{error ? error : null}</span>
+          <span className="error">{error ? error : null}</span>
         </div>
         <button type="submit" onClick={clickHandler}>
           Fetch Post

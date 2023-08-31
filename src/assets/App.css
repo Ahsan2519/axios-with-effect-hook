@@ -23,21 +23,26 @@ form {
 
 .parent {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   flex-basis: 90%;
 }
 
 input {
-  flex-basis: 84.5%;
+  width: 95%;
   padding: 5px;
 }
 button {
-  flex-basis: 5%;
+  flex-basis: 8%;
   padding: 5px 10px;
 }
 
-.parent label {
+label {
   flex-basis: 15%;
   margin-bottom: 10px;
+}
+
+.error {
+  font-weight: 600;
+  color: #fd0303;
 }
