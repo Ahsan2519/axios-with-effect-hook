@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px auto;
+  width: 80%;
+  max-width: 1440px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.parent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 90%;
+}
+
+input {
+  flex-basis: 84.5%;
+  padding: 5px;
+}
+button {
+  flex-basis: 5%;
+  padding: 5px 10px;
+}
+
+.parent label {
+  flex-basis: 15%;
+  margin-bottom: 10px;
+}
