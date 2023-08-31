@@ -15,13 +15,12 @@ const PostList = () => {
   };
 
   const getData = async () => {
-    
     try {
-      setError('')
+      setError("");
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/posts/${postId}`
       );
-      setPost(response.data)
+      setPost(response.data);
     } catch (error) {
       console.log(error.message);
       setError(error.message);
@@ -35,7 +34,7 @@ const PostList = () => {
   return (
     <>
       <form onSubmit={submitHandler}>
-          <label htmlFor="id">please enter post number:</label>
+        <label htmlFor="id">please enter post number:</label>
         <div className="parent">
           <input
             type="number"
@@ -51,12 +50,14 @@ const PostList = () => {
           Fetch Post
         </button>
       </form>
-      <div>
-        <h2>id:{post.id}</h2>
-        <span>
-          <strong>title</strong>: {post.title}
-        </span>
-      </div>
+      {post && !error && (
+        <div>
+          <h2>id:{post.id}</h2>
+          <span>
+            <strong>title</strong>: {post.title}
+          </span>
+        </div>
+      )}
     </>
   );
 };
